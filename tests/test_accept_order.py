@@ -83,7 +83,7 @@ class TestAcceptOrder:
         invalid_courier_id = 999999
         accept_response = accept_order(order_id=order_id, courier_id=invalid_courier_id)
         assert accept_response.status_code == 404
-        assert accept_response.json().get("message") == "Курьера с таким id не существует", "Ожидалось сообщение о несуществующем курьере"
+        assert accept_response.json().get("message") == "Курьера с таким id не существует"
 
     @pytest.mark.xfail(reason="500 Error")
     @allure.title('Ошибка при отсутствии ID заказа')
